@@ -4,26 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kepler's Law</title>
-
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-      }
-
-      .text {
-        width: 20%;
-        height: 100vh;
-        background-color: #000000b6;
-        color: white;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        z-index: 99999;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Maven+Pro:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <canvas id="c"></canvas>
@@ -31,8 +18,32 @@
 
     <section class="text">
       <div class="title">Kepler's Law</div>
-      <div class="description"></div>
-      <div class="controls"></div>
+      <div class="description">
+        <ul class="description__list">
+          <li>
+            <span class="highlit"><b>Law of Ellipses:</b></span> All planets move in
+            elliptical orbits, with the Sun located at one of the two foci. This means
+            planetary orbits are not perfect circles but "flattened" circles.
+          </li>
+          <li>
+            <span class="highlit"><b>Law of Equal Areas:</b></span> An imaginary line
+            connecting a planet to the Sun sweeps out equal areas in equal intervals of
+            time. Consequently, a planet moves faster when it is closer to the Sun
+            (perihelion) and slower when it is farther away (aphelion).
+          </li>
+          <li>
+            <span class="highlit"><b>Law of Harmonies:</b></span> The square of the
+            orbital period of a planet is directly proportional to the cube of the
+            semi-major axis of its orbit, expressed as
+            <span class="highlit">T<sup>2</sup> ∝ a<sup>3</sup></span
+            >. This means planets farther from the Sun take significantly longer to
+            complete an orbit than closer planets.
+          </li>
+        </ul>
+      </div>
+      <div class="controls">
+        <h2 class="controls__title">CONTROLS</h2>
+      </div>
     </section>
   </body>
 </html>
