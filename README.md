@@ -12,7 +12,6 @@ The system computes motion through numerical integration, allowing orbital paths
 The control panel is currently a work in progress. Future versions will allow users to:
 
 * Adjust initial velocity
-* Change orbital radius
 * Modify central mass
 * Reset simulation
 
