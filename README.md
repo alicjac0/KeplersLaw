@@ -8,7 +8,7 @@ The system computes motion through numerical integration, allowing orbital paths
 
 **_This project is intended both as a visual educational tool and as a practical exploration of applying physics concepts in a computational environment._**
 
-## Controls
+### Controls
 The control panel is currently a work in progress. Future versions will allow users to:
 
 * Adjust initial velocity
@@ -16,7 +16,7 @@ The control panel is currently a work in progress. Future versions will allow us
 * Modify central mass
 * Reset simulation
 
-## Future Development
+### Future Development
 * Refactor using React for a modular architecture and better state management
 * Add multiple planets and more advanced gravitational interactions
 * Improve UI/UX for interactive learning
