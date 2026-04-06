@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kepler's Law</title>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .text {
+        width: 20%;
+        height: 100vh;
+        background-color: #000000b6;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        z-index: 99999;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <script src="script.js"></script>
+
+    <section class="text">
+      <div class="title">Kepler's Law</div>
+      <div class="description"></div>
+      <div class="controls"></div>
+    </section>
+  </body>
+</html>
