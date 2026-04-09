@@ -43,6 +43,53 @@
       </div>
       <div class="controls">
         <h2 class="controls__title">CONTROLS</h2>
+        <label class="controls__label">
+          <b>Sun Mass</b>
+          <span class="controls__inp">
+            <div class="controls__value" id="sunMassValue">200</div>
+            <input
+              class="controls__slider"
+              type="range"
+              id="sunMass"
+              min="50"
+              max="5000"
+              value="200"
+              oninput="sunMassValue.textContent = this.value"
+            />
+          </span>
+        </label>
+        <label class="controls__label">
+          <b>Planet Velocity</b>
+          <span class="controls__inp">
+            <div class="controls__value" id="planetVelocityValue">1</div>
+            <input
+              class="controls__slider"
+              type="range"
+              id="planetVelocity"
+              min="0"
+              max="10"
+              value="1"
+              step="0.1"
+              oninput="planetVelocityValue.textContent = this.value"
+            />
+          </span>
+        </label>
+        <label class="controls__label">
+          <b>Planet X Position</b>
+          <span class="controls__inp">
+            <div class="controls__value" id="planetXValue">200</div>
+            <input
+              class="controls__slider"
+              type="range"
+              id="planetX"
+              min="0"
+              max="1000"
+              value="200"
+              oninput="planetXValue.textContent = this.value"
+            />
+          </span>
+        </label>
+        <button onclick="values()" class="controls__button">Start</button>
       </div>
     </section>
   </body>
