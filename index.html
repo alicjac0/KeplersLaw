@@ -16,9 +16,10 @@
     <canvas id="c"></canvas>
     <script src="script.js"></script>
 
-    <section class="text">
-      <div class="text__one">
-      <div class="title">Kepler's Law</div>
+    <button class="info__toggle--btn" onclick="toggleMenu()">☰ Kepler's Laws</button>
+    <section class="info__sidebar" id="infoSidebar">
+      <button class="close-btn" onclick="toggleMenu()">×</button>
+      <div class="title">Kepler's Laws</div>
       <div class="description">
         <ul class="description__list">
           <li>
@@ -42,10 +43,9 @@
           </li>
         </ul>
       </div>
-    </div>
-      <hr class="line">
-      <div class="text__two">
-      <div class="controls">
+    </section>
+
+    <section class="controls">
         <h2 class="controls__title">CONTROLS</h2>
         <label class="controls__label">
           <b>Sun Mass</b>
@@ -94,8 +94,30 @@
           </span>
         </label>
         <button onclick="startSimulation()" class="controls__button">START</button>
-      </div>
-    </div>
-    </section>
+      </section>
+
+      <div class="vector-panel">
+  <h3 class="vector-panel__title"><b>VECTORS</b></h3>
+  <label class="vector-checkbox">
+    <input type="checkbox" id="velCheck" checked onchange="toggleVectors()">
+    <span class="custom-check red"></span>
+    Velocity <math>
+  <mover>
+    <mi>v</mi>
+    <mo>→</mo>
+  </mover>
+</math>
+  </label>
+  <label class="vector-checkbox">
+    <input type="checkbox" id="accCheck" checked onchange="toggleVectors()">
+    <span class="custom-check blue"></span>
+    Gravity <math>
+  <mover>
+    <mi>g</mi>
+    <mo>→</mo>
+  </mover>
+</math>
+  </label>
+</div>
   </body>
 </html>
