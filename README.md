@@ -49,4 +49,4 @@ Since this project uses native web technologies without external dependencies, r
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/KeplersLaw.git](https://github.com/YOUR_USERNAME/KeplersLaw.git)
+   git clone [https://github.com/alicjac0/KeplersLaw.git](https://github.com/alicjac0/KeplersLaw.git)
