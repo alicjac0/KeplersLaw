@@ -8,7 +8,7 @@ let Pblur = 100
 let sun = {
   x: canvas.width / 2,
   y: canvas.height / 2,
-  mass: 400,
+  mass: 200,
 }
 
 let planet = {
@@ -18,6 +18,10 @@ let planet = {
   vy: 1.2,
   mass: 1,
 }
+
+let startMass = 200;
+let startVelocity = 1;
+let startX = 200;
 
 function update() {
   let dx = sun.x - planet.x
@@ -34,6 +38,45 @@ function update() {
 
   planet.x += planet.vx
   planet.y += planet.vy
+}
+
+function drawOrbitPrediction() {
+  ctx.save();
+  ctx.strokeStyle = 'rgba(255, 187, 0, 0.61)';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([4, 6]);
+
+  let vPlanet = {
+    x: sun.x + startX,
+    y: sun.y,
+    vx: 0,
+    vy: startVelocity
+  };
+
+  ctx.beginPath();
+  ctx.moveTo(vPlanet.x, vPlanet.y);
+
+  for (let i = 0; i < 2000; i++) {
+    let dx = sun.x - vPlanet.x;
+    let dy = sun.y - vPlanet.y;
+    let distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < 20) break; 
+
+    let force = startMass / (distance * distance);
+    let ax = (force * dx) / distance;
+    let ay = (force * dy) / distance
+
+    vPlanet.vx += ax;
+    vPlanet.vy += ay;
+    vPlanet.x += vPlanet.vx;
+    vPlanet.y += vPlanet.vy;
+
+    ctx.lineTo(vPlanet.x, vPlanet.y);
+  }
+
+  ctx.stroke();
+  ctx.restore();
 }
 
 function draw() {
@@ -74,24 +117,41 @@ function stopLoop() {
   }
 }
 
-loop()
-
-function reset() {
-  planet.vx = 0
-  planet.vy = 1
-  planet.x = sun.x + 200
-  planet.y = sun.y
-  sun.mass = 1000
-}
-
 function values() {
-  let sunMass = document.getElementById('sunMass').value
-  let pVelocity = document.getElementById('planetVelocity').value
-  let pX = document.getElementById('planetX').value
-  reset()
-  stopLoop()
-  sun.mass = Number(sunMass)
-  planet.vy = Number(pVelocity)
-  planet.x = sun.x + Number(pX)
-  loop()
+  stopLoop();
+
+  startMass = Number(document.getElementById('sunMass').value);
+  startVelocity = Number(document.getElementById('planetVelocity').value);
+  startX = Number(document.getElementById('planetX').value);
+
+  document.getElementById('sunMassValue').innerText = startMass;
+  document.getElementById('planetVelocityValue').innerText = startVelocity;
+  document.getElementById('planetXValue').innerText = startX;
+
+  sun.mass = startMass;
+  planet.x = sun.x + startX;
+  planet.y = sun.y;
+  planet.vx = 0;
+  planet.vy = startVelocity;
+
+  ctx.fillStyle = '#070707';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  drawOrbitPrediction();
+  
+  draw(); 
 }
+
+function startSimulation() {
+  stopLoop(); 
+  
+  sun.mass = startMass;
+  planet.x = sun.x + startX;
+  planet.y = sun.y;
+  planet.vx = 0;
+  planet.vy = startVelocity;
+
+  loop();
+}
+
+setTimeout(values, 100);

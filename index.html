@@ -17,6 +17,7 @@
     <script src="script.js"></script>
 
     <section class="text">
+      <div class="text__one">
       <div class="title">Kepler's Law</div>
       <div class="description">
         <ul class="description__list">
@@ -35,12 +36,15 @@
             <span class="highlit"><b>Law of Harmonies:</b></span> The square of the
             orbital period of a planet is directly proportional to the cube of the
             semi-major axis of its orbit, expressed as
-            <span class="highlit">T<sup>2</sup> ∝ a<sup>3</sup></span
-            >. This means planets farther from the Sun take significantly longer to
+            <span class="highlit"><b>T<sup>2</sup> ∝ a<sup>3</sup></b></span>
+            .This means planets farther from the Sun take significantly longer to
             complete an orbit than closer planets.
           </li>
         </ul>
       </div>
+    </div>
+      <hr class="line">
+      <div class="text__two">
       <div class="controls">
         <h2 class="controls__title">CONTROLS</h2>
         <label class="controls__label">
@@ -54,7 +58,7 @@
               min="50"
               max="5000"
               value="200"
-              oninput="sunMassValue.textContent = this.value"
+              oninput="values()"
             />
           </span>
         </label>
@@ -70,7 +74,7 @@
               max="10"
               value="1"
               step="0.1"
-              oninput="planetVelocityValue.textContent = this.value"
+              oninput="values()"
             />
           </span>
         </label>
@@ -85,12 +89,13 @@
               min="0"
               max="1000"
               value="200"
-              oninput="planetXValue.textContent = this.value"
+              oninput="values()"
             />
           </span>
         </label>
-        <button onclick="values()" class="controls__button">Start</button>
+        <button onclick="startSimulation()" class="controls__button">START</button>
       </div>
+    </div>
     </section>
   </body>
 </html>
