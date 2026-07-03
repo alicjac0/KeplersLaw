@@ -1,45 +1,45 @@
 # Kepler's Laws Simulation
 
-An interactive, physics-based educational tool built with pure JavaScript and HTML5 Canvas that simulates planetary motion. The simulation models gravitational fields in real-time, allowing users to observe Kepler’s laws of planetary motion emerging naturally from numerical integration.
+An interactive, physics-based educational tool built with pure JavaScript and HTML5 Canvas that simulates planetary motion. The system models gravitational fields in real-time using numerical integration, allowing Kepler’s laws to emerge naturally from fundamental physical equations.
 
-![Kepler's Law Simulation Preview](https://github.com/user-attachments/assets/973c2fe0-bac8-4bf0-b715-f3550340be71)
+<img width="1898" height="940" alt="image" src="https://github.com/user-attachments/assets/a03c163e-2cc7-4cd9-8c23-dcb7f243849d" />
+
 
 ## Features & Physics Implemented
 
-Unlike standard animations with hardcoded paths, this simulation uses real-time physics calculations:
-* **Numerical Integration:** Planetary acceleration, velocity, and position are updated per frame using Newton's Law of Universal Gravitation.
+Unlike standard animations with predefined paths, this simulation computes motion frame-by-frame:
 * **Kepler's 1st Law (Ellipses):** Orbits naturally form ellipses with the Sun acting as one of the foci.
-* **Kepler's 2nd Law (Equal Areas):** The planet dynamically accelerates when closer to the Sun (perihelion) and slows down when further away (aphelion).
-* **Live Orbit Prediction:** The system calculates and renders a dotted preview line of the trajectory *before* the simulation starts, updating dynamically as parameters change.
+* **Kepler's 2nd Law (Equal Areas):** The planet dynamically accelerates at the perihelion (closest to the Sun) and slows down at the aphelion (furthest away).
+* **Live Orbit Prediction:** Calculates and renders a dotted preview line of the trajectory *before* the simulation starts, updating instantly as parameters change.
+* **Dynamic Motion Trail:** A custom rendering system creates a smooth, fading trajectory trail behind the planet without blurring other UI elements.
 
-## Interactive Controls
+## HUD & Interactive Controls
 
-The control panel uses a modern glassmorphic UI allowing real-time adjustments:
-* **Sun Mass:** Modifies the gravitational pull ($F_g$), altering the curvature of the orbit.
-* **Planet Velocity:** Changes the initial tangential speed ($v_y$) to test stable, elliptical, or escape trajectories.
-* **Planet X Position:** Adjusts the initial starting distance from the central mass.
+The simulation features a modern Heads-Up Display (HUD) layout optimized for clean visuals and mobile screens:
+* **Sliding Info Sidebar:** A responsive, elegant panel holding the physical descriptions of Kepler's laws, easily toggled via the hamburger menu.
+* **Vector Visualizers:** Real-time interactive arrow overlays originating from the planet:
+   * **Velocity Vector ($v$):** Shows the instantaneous direction and speed (lengthens as the planet speeds up).
+  * **Gravity Vector ($g$):** Represents the gravitational acceleration pulling the planet directly toward the central mass.
+* **Parameter Sliders:** Adjust Sun Mass, Initial Planet Velocity, and Starting Position on the fly.
 
 ---
 
 ## Tech Stack & Concepts
 
-* **Frontend:** HTML5, CSS3 (Modern Glassmorphism & Grid), Vanilla JavaScript (ES6+).
-* **Graphics:** HTML5 Canvas API (Path drawing, glowing shadows, alpha-trail effects for planet velocity visualization).
+* **Frontend:** HTML5, CSS3 (Modern Glassmorphism, Fixed HUD Layout), Vanilla JavaScript (ES6+).
+* **Graphics:** HTML5 Canvas API (Path drawing, dynamic alpha-trails, clean vector arrow rendering loops).
 * **Physics engine:** Classical mechanics integration loop inside `requestAnimationFrame`.
 
 ### Core Physics Equations Used:
 
 Distance vector calculation:
-
 $$d = \sqrt{\Delta x^2 + \Delta y^2}$$
 
-Gravitational force magnitude:
+Gravitational acceleration field ($g$):
+$$g = \frac{\text{Sun Mass}}{d^2}$$
 
-$$F = \frac{\text{Sun Mass}}{d^2}$$
-
-Acceleration components:
-
-$$a_x = \frac{F \cdot \Delta x}{d}, \quad a_y = \frac{F \cdot \Delta y}{d}$$
+Vector components applied to velocity ($v_x, v_y$):
+$$g_x = \frac{g \cdot \Delta x}{d}, \quad g_y = \frac{g \cdot \Delta y}{d}$$
 
 ---
 
